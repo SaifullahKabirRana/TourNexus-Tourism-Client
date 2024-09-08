@@ -10,7 +10,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <div className='text-3xl text-red-500'>Hello world!</div>,
   },
 ]);
 

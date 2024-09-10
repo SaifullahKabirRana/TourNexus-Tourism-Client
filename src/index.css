@@ -12,3 +12,16 @@
     font-weight: 700;
     
 }
+
+.banner-1 {
+    background-image: linear-gradient(180deg,#03071280,#03071200),url('./assets/faq-nepal.jpeg');
+ }
+.banner-2 {
+    background-image: linear-gradient(180deg,#03071280,#03071200),url('./assets/image_processing20231027-41-piu9d1.jpg');
+ }
+.banner-3 {
+    background-image: linear-gradient(180deg,#03071280,#03071200),url('./assets/travel-world.jpg');
+ }
+.banner-4 {
+    background-image: linear-gradient(180deg,#03071280,#03071200),url('./assets/shutterstock_1005763861.jpg');
+ }

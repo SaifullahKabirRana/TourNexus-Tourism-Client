@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#nav a.active {
+    border: 1px solid #56b63e;
+    background-color: transparent;
+    color: #56b63e;
+    font-weight: 700;
+    
+}

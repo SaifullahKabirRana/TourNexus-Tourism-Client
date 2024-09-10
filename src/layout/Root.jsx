@@ -3,9 +3,11 @@ import { Outlet } from "react-router-dom";
 const Root = () => {
     return (
         <div>
-           <div>
-            <Outlet></Outlet>
-           </div>
+            <div className="container mx-auto">
+                <div className="mx-5">
+                    <Outlet></Outlet>
+                </div>
+            </div>
         </div>
     );
 };

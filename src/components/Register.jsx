@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import SocialLogin from "./socialLogin/SocialLogin";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
 
     const handleRegister = e => {
@@ -26,11 +27,11 @@ const Register = () => {
             setRegisterError('password should be at least 6 characters or longer')
             return;
         }
-        else if (!/[A-Z]/.test(password)){
+        else if (!/[A-Z]/.test(password)) {
             setRegisterError('password should have at least one upper case character');
             return;
         }
-        else if (!/[a-z]/.test(password)){
+        else if (!/[a-z]/.test(password)) {
             setRegisterError('password should have at least one lower case character');
             return;
         }
@@ -40,6 +41,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                toast.success('Successfully Register');
             })
             .catch(error => {
                 setRegisterError(error.code);
@@ -84,6 +86,19 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer className=''
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            >
+            </ToastContainer>
         </div>
     );
 };

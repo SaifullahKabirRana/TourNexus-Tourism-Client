@@ -2,7 +2,7 @@ import { TbPhotoFilled } from "react-icons/tb";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./socialLogin/SocialLogin";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
     const { createUser, logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
+    const navigate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault();
@@ -42,6 +43,10 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Successfully Register');
+                logOut();
+                setTimeout(() => {
+                    navigate('/login')
+                }, 1500);
             })
             .catch(error => {
                 setRegisterError(error.code);

@@ -8,11 +8,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { VscEye } from "react-icons/vsc";
+import { VscEyeClosed } from "react-icons/vsc";
 
 const Register = () => {
     const { createUser, logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -74,7 +77,8 @@ const Register = () => {
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-1">
                             <RiLockPasswordFill />
-                            <input type="password" name="password" placeholder="Password" className="grow" required />
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="grow" required />
+                            <span className="text-xl md:text-2xl " onClick={() => setShowPassword(!showPassword)}>{showPassword ? <VscEyeClosed /> : <VscEye />}</span>
                         </label>
                         <div className="ml-2 mb-4">
                             {

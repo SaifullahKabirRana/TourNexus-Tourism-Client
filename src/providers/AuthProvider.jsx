@@ -2,9 +2,10 @@ import { createContext, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
+const auth = getAuth(app);
+
 export const AuthContext = createContext(null);
 
-const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -25,7 +26,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    const authInfo = {
+    const userInfo = {
         user,
         loader,
         createUser,
@@ -34,7 +35,7 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={authInfo}>
+        <AuthContext.Provider value={userInfo}>
             {children}
         </AuthContext.Provider>
     );

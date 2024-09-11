@@ -4,7 +4,14 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import SocialLogin from "./socialLogin/SocialLogin";
+import { useContext, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+
+
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('');
+
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -13,6 +20,32 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
         console.log(name, email, photo, password);
+
+        // password verification
+        if (password.length < 6) {
+            setRegisterError('password should be at least 6 characters or longer')
+            return;
+        }
+        else if (!/[A-Z]/.test(password)){
+            setRegisterError('password should have at least one upper case character');
+            return;
+        }
+        else if (!/[a-z]/.test(password)){
+            setRegisterError('password should have at least one lower case character');
+            return;
+        }
+
+        setRegisterError('');
+        //user create
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                setRegisterError(error.code);
+                console.log(error.message);
+            })
+
     }
     return (
         <div className="">
@@ -21,21 +54,26 @@ const Register = () => {
                     <h2 className="font-quicksand  text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8 text-center">Register Your Account</h2>
                     <form onSubmit={handleRegister}>
                         <label className="input input-bordered flex items-center gap-2 mb-4">
-                        <FaUser />
-                            <input type="text" name="name" className="grow" placeholder="Name" required/>
+                            <FaUser />
+                            <input type="text" name="name" className="grow" placeholder="Name" required />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-4">
                             <MdEmail />
-                            <input type="email" name="email" className="grow" placeholder="Email" required/>
+                            <input type="email" name="email" className="grow" placeholder="Email" required />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-4">
                             <TbPhotoFilled />
                             <input type="text" name="photo" placeholder="Photo URL" className="grow " />
                         </label>
-                        <label className="input input-bordered flex items-center gap-2 mb-4">
+                        <label className="input input-bordered flex items-center gap-2 mb-1">
                             <RiLockPasswordFill />
-                            <input type="password" name="password" placeholder="Password" className="grow" required/>
+                            <input type="password" name="password" placeholder="Password" className="grow" required />
                         </label>
+                        <div className="ml-2 mb-4">
+                            {
+                                registerError && <p className="text-[12px] md:text-[15px] text-red-600">{registerError}</p>
+                            }
+                        </div>
                         <div>
                             <input className="btn w-full bg-[#56b63e] text-white font-quicksand font-semibold text-base md:text-lg lg:text-xl" type="submit" value="Register" />
                         </div>

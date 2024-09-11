@@ -5,7 +5,7 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allSpot'>All Tourists Spot</NavLink></li>
         <li><NavLink to='/addSpot'>Add Tourists Spot</NavLink></li>
-        <li><NavLink to='/register'>Register</NavLink></li>
+        <li><NavLink to='/myList'>My Tourists List</NavLink></li>
     </>
     return (
         <div className="font-quicksand mt-1 md:mt-3">
@@ -33,7 +33,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost -ml-6 md:-ml-6 lg:-ml-0 text-xl md:text-2xl lg:text-2xl xl:text-3xl font-workSans lg:-mt-5">TourNexus
+                    <a className="btn btn-ghost -ml-6 md:-ml-6 lg:-ml-0 text-xl md:text-2xl lg:text-2xl xl:text-3xl font-quicksand font-bold lg:-mt-5">TourNexus
                         <img className='w-[40px] mt-1 -ml-2 lg:w-[60px]  text-[#63AB45]' src={logo1} alt="" />
                     </a>
                 </div>
@@ -46,6 +46,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                    <Link to='/login'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6">Login</a></Link>
+                   <Link to='/register'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6 ml-2">Register</a></Link>
                 </div>
             </div>
         </div>

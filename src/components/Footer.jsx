@@ -9,7 +9,7 @@ import logo1 from '../assets/flight.png'
 const Footer = () => {
     return (
         <div>
-            <div className='bg-[#12132D0D] mt-8 md:mt-12 lg:mt-24 '>
+            <div className='bg-[#12132D0D] mt-12 md:mt-16 lg:mt-24 '>
                 <div className='md:flex container mx-auto'>
                     <div className='mx-7 md:mx-10 pt-[35px] md:pt-[60px] lg:pt-[100px]'>
                         <h2 className="flex items-center gap-2 text-2xl md:text-3xl lg:text-4xl font-quicksand font-bold ">TourNexus

@@ -32,12 +32,12 @@ const Login = () => {
 
     }
     return (
-        <div className="">
-            <div className="mt-7 md:mt-10 lg:mt-16 pt-6 md:pt-10 lg:pt-16 pb-4 md:pb-6 lg:pb-8 shadow-xl rounded-lg max-w-[340px] md:max-w-[450px] lg:max-w-[600px] mx-auto ">
-                <div className="lg:px-10 md:px-8 px-6 ">
+        <div className="-mx-5 md:-mx-0">
+            <div className="mt-7 md:mt-10 lg:mt-16 pt-6 md:pt-10 lg:pt-16 pb-4 md:pb-6 lg:pb-8 shadow-xl rounded-lg max-w-[350px] md:max-w-[450px] lg:max-w-[600px] mx-auto ">
+                <div className="lg:px-10 md:px-8 px-4 ">
                     <h2 className="font-quicksand  text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8 text-center">Login Your Account</h2>
                     <form onSubmit={handleLogin}>
-                        <label className="input input-bordered flex items-center gap-2 mb-4">
+                        <label className="input input-bordered flex items-center gap-2 mb-3 md:mb-4">
                             <MdEmail />
                             <input type="email" name="email" className="grow" placeholder="Email" required />
                         </label>

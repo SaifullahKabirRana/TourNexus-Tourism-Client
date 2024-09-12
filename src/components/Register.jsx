@@ -10,12 +10,14 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Register = () => {
     const { createUser, logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const auth = getAuth()
 
     const handleRegister = e => {
         e.preventDefault();
@@ -50,6 +52,11 @@ const Register = () => {
                 setTimeout(() => {
                     navigate('/login')
                 }, 1500);
+                updateProfile(auth.currentUser,
+                    { displayName: name, photoURL: photo })
+                    .then()
+                    .catch()
+
             })
             .catch(error => {
                 setRegisterError(error.code);
@@ -58,20 +65,20 @@ const Register = () => {
 
     }
     return (
-        <div className="">
-            <div className="mt-7 md:mt-10 lg:mt-16 pt-6 md:pt-10 lg:pt-16 pb-4 md:pb-6 lg:pb-8 shadow-xl rounded-lg max-w-[340px] md:max-w-[450px] lg:max-w-[600px] mx-auto ">
-                <div className="lg:px-10 md:px-8 px-6 ">
+        <div className="-mx-5 md:-mx-0">
+            <div className="mt-7 md:mt-10 lg:mt-16 pt-6 md:pt-10 lg:pt-16 pb-4 md:pb-6 lg:pb-8 shadow-xl rounded-lg max-w-[350px] md:max-w-[450px] lg:max-w-[600px] mx-auto ">
+                <div className="lg:px-10 md:px-8 px-4 ">
                     <h2 className="font-quicksand  text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8 text-center">Register Your Account</h2>
                     <form onSubmit={handleRegister}>
-                        <label className="input input-bordered flex items-center gap-2 mb-4">
+                        <label className="input input-bordered flex items-center gap-2 mb-3 md:mb-4">
                             <FaUser />
                             <input type="text" name="name" className="grow" placeholder="Name" required />
                         </label>
-                        <label className="input input-bordered flex items-center gap-2 mb-4">
+                        <label className="input input-bordered flex items-center gap-2 mb-3 md:mb-4">
                             <MdEmail />
                             <input type="email" name="email" className="grow" placeholder="Email" required />
                         </label>
-                        <label className="input input-bordered flex items-center gap-2 mb-4">
+                        <label className="input input-bordered flex items-center gap-2 mb-3 md:mb-4">
                             <TbPhotoFilled />
                             <input type="text" name="photo" placeholder="Photo URL" className="grow " />
                         </label>
@@ -80,7 +87,7 @@ const Register = () => {
                             <input type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="grow" required />
                             <span className="text-xl md:text-2xl " onClick={() => setShowPassword(!showPassword)}>{showPassword ? <VscEyeClosed /> : <VscEye />}</span>
                         </label>
-                        <div className="ml-2 mb-4">
+                        <div className="ml-2 mb-3 md:mb-4">
                             {
                                 registerError && <p className="text-[12px] md:text-[15px] text-red-600">{registerError}</p>
                             }

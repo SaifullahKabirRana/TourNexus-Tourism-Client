@@ -1,6 +1,17 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo1 from '../assets/flight.png';
+import { useContext } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
+import userDefaultPic from '../assets/user.png'
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user, 'user');
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allSpot'>All Tourists Spot</NavLink></li>
@@ -39,14 +50,49 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul
-                    id='nav'
-                    className="menu menu-horizontal px-1 lg:text-sm xl:text-base ">
+                        id='nav'
+                        className="menu menu-horizontal px-1 lg:text-sm xl:text-base ">
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                   <Link to='/login'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6">Login</a></Link>
-                   <Link to='/register'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6 ml-2">Register</a></Link>
+                <div className="navbar-end md:gap-2">
+
+                    {
+                        user &&
+                        <div className="dropdown dropdown-hover">
+                            <div tabIndex={0} role="button" className=" ">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-6 md:w-11  rounded-full ">
+                                        <img className='border-2 border-gray-300 rounded-full' src={user?.photoURL ? user.photoURL : userDefaultPic} alt="" />
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-[155px] md:w-[220px] p-2 shadow">
+                                {
+                                    user && <>
+                                        <div className="flex gap-1 md:gap-2 items-center md:p-1 ">
+                                            <img src={user?.photoURL ? user.photoURL : userDefaultPic} alt="" className="w-10 md:w-14 h-11 md:h-14 rounded-lg dark:bg-gray-500" />
+                                            <div>
+                                                <h2 className="mt-1 text-[12px] font-semibold">{user?.displayName}</h2>
+                                                
+                                            </div>
+                                        </div>
+                                    </>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    {
+                        user ?
+                            <button onClick={handleLogOut} className='btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6'>Log Out</button>
+                            :
+                            <>
+                                <Link to='/login'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6">Login</a></Link>
+                                <Link to='/register'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6 ml-2">Register</a></Link>
+                            </>
+                    }
                 </div>
             </div>
         </div>

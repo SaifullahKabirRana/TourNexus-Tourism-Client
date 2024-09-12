@@ -1,7 +1,23 @@
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithub } from "react-icons/vsc";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
+    const { googleLogin, githubLogin} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleSocialLogin = socialProvider => {
+        socialProvider()
+        .then(result => {
+            if(result.user) {
+                navigate(location?.state ? location.state : '/');
+            }
+        })
+        .catch()
+    }
     return (
         <div className="">
             <div className="mt-2">
@@ -12,13 +28,13 @@ const SocialLogin = () => {
                         <hr className="w-full" />
                     </div>
                     <div className="text-center mt-1 md:mt-3">
-                        <div className="btn btn-outline  w-full">
+                        <div onClick={() => handleSocialLogin(googleLogin)} className="btn btn-outline  w-full">
                             <div className="text-2xl">
                                 <FcGoogle />
                             </div>
                             <p className="text-[14px] md:text-[16px] font-quicksand font-bold">Continue with Google</p>
                         </div>
-                        <div className="btn btn-outline  mt-2 md:mt-4 w-full">
+                        <div onClick={() => handleSocialLogin(githubLogin)} className="btn btn-outline  mt-2 md:mt-4 w-full">
                             <div className="text-2xl">
                                 <VscGithub />
                             </div>
@@ -27,7 +43,7 @@ const SocialLogin = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./socialLogin/SocialLogin";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -12,6 +12,8 @@ const Login = () => {
     const { loginUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -25,6 +27,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Successfully Login');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 setLoginError(error.code);

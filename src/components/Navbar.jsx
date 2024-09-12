@@ -62,13 +62,13 @@ const Navbar = () => {
                         <div className="dropdown dropdown-hover">
                             <div tabIndex={0} role="button" className=" ">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-6 md:w-11  rounded-full ">
+                                    <div className="w-8 md:w-11  rounded-full ">
                                         <img className='border-2 border-gray-300 rounded-full' src={user?.photoURL ? user.photoURL : userDefaultPic} alt="" />
                                         
                                     </div>
                                 </div>
                             </div>
-                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-[155px] md:w-[220px] p-2 shadow">
+                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-10 w-[150px] md:w-[220px] p-2 shadow">
                                 {
                                     user && <>
                                         <div className="flex gap-1 md:gap-2 items-center md:p-1 ">

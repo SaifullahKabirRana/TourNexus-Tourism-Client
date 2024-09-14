@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
+
 const Login = () => {
     const { loginUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState(true);
@@ -27,7 +28,9 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Successfully Login');
-                navigate(location?.state ? location.state : '/');
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 700)
             })
             .catch(error => {
                 setLoginError(error.code);
@@ -36,7 +39,7 @@ const Login = () => {
     }
     return (
         <div className="-mx-5 md:-mx-0">
-            <div className="mt-7 md:mt-10 lg:mt-16 pt-6 md:pt-10 lg:pt-16 pb-4 md:pb-6 lg:pb-8 shadow-xl rounded-lg max-w-[350px] md:max-w-[450px] lg:max-w-[600px] mx-auto ">
+            <div className="mt-7 md:mt-10 lg:mt-16 pt-6 md:pt-10 lg:pt-16 pb-4 md:pb-6 lg:pb-8 shadow-xl rounded-lg max-w-[350px] md:max-w-[450px] lg:max-w-[600px] mx-auto">
                 <div className="lg:px-10 md:px-8 px-4 ">
                     <h2 className="font-quicksand  text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 lg:mb-8 text-center">Login Your Account</h2>
                     <form onSubmit={handleLogin}>

@@ -1,12 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo1 from '../assets/flight.png';
+import { GiCommercialAirplane } from "react-icons/gi";
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import userDefaultPic from '../assets/user.png';
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, loader } = useContext(AuthContext);
     const [theme, setTheme] = useState('light');
+
 
     const handleLogOut = () => {
         logOut()
@@ -36,6 +37,11 @@ const Navbar = () => {
         <li><NavLink to='/myList'>My Tourists List</NavLink></li>
 
     </>
+
+    if (loader) {
+        return
+    }
+    
     return (
         <div className="font-quicksand mt-1 md:mt-3">
             <div className="navbar bg-base-100">
@@ -62,8 +68,8 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost -ml-7 md:-ml-6 lg:-ml-0 text-xl md:text-2xl lg:text-2xl xl:text-3xl font-quicksand font-bold lg:-mt-5">TourNexus
-                        <img className='w-[35px] md:w-[45px] mt-1 -ml-2 lg:w-[60px]  text-[#63AB45]' src={logo1} alt="" />
+                    <a className="btn btn-ghost -ml-7 md:-ml-6 lg:-ml-0 text-xl md:text-2xl lg:text-2xl xl:text-3xl font-quicksand font-bold gap-0">TourNexus
+                        <GiCommercialAirplane />
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -81,7 +87,7 @@ const Navbar = () => {
 
                         {/* sun icon */}
                         <svg
-                            className="swap-off h-8 md:h-10 w-8 md:w-10 fill-current mt-1"
+                            className="swap-off h-8 md:h-10 w-8 md:w-10 fill-current mt-1 md:mt-0"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24">
                             <path

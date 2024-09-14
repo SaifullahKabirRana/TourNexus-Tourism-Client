@@ -12,6 +12,7 @@ import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import { getAuth, updateProfile } from "firebase/auth";
 
+
 const Register = () => {
     const { createUser, logOut } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
@@ -116,6 +117,7 @@ const Register = () => {
             >
             </ToastContainer>
         </div>
+
     );
 };
 

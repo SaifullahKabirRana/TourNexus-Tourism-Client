@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const AddTouristSpots = () => {
+    const { user } = useContext(AuthContext);
     const handleAddSpots = e => {
         e.preventDefault();
         const form = e.target;
@@ -16,14 +19,27 @@ const AddTouristSpots = () => {
         const user_Name = form.user_Name.value;
         const photo = form.photo.value;
         const newSpot = {
-            tourists_spot_name, country_Name, location, average_cost, seasonality, short_description, travel_time, totalVisitorsPerYear, user_email, user_Name, photo 
+            tourists_spot_name, country_Name, location, average_cost, seasonality, short_description, travel_time, totalVisitorsPerYear, user_email, user_Name, photo
         };
         console.log(newSpot);
+
+        // send data to the server
+        fetch('http://localhost:5000/touristSpot', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newSpot)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
 
     }
     return (
         <div>
-            
+
             <div className='container mx-auto mt-4 md:mt-7 lg:mt-10'>
                 <div className=' md:mx-16 lg:mx-28'>
 
@@ -76,8 +92,8 @@ const AddTouristSpots = () => {
                                         <label className="label">
                                             <span className="label-text text-base md:text-lg lg:text-xl font-openSans font-semibold ">Seasonality</span>
                                         </label>
-                                        <select  name="seasonality" className="select select-bordered w-full text-[14px] md:text-[16px]">
-                                            <option  disabled selected>Select a Season</option>
+                                        <select name="seasonality" className="select select-bordered w-full text-[14px] md:text-[16px]">
+                                            <option disabled selected>Select a Season</option>
                                             <option>Summer</option>
                                             <option>Winter</option>
                                         </select>
@@ -112,7 +128,7 @@ const AddTouristSpots = () => {
                                         <label className="label">
                                             <span className="label-text text-base md:text-lg lg:text-xl font-openSans font-semibold ">User Email</span>
                                         </label>
-                                        <input type="email" name='user_email' placeholder="Enter user email" className="input input-bordered w-full text-[14px] md:text-[16px]" required />
+                                        <input type="email" name='user_email' placeholder="Enter user email" className="input input-bordered w-full text-[14px] md:text-[16px]" defaultValue={user?.email} required />
                                     </div>
                                     <div className="form-control w-full">
                                         <label className="label">
@@ -121,7 +137,9 @@ const AddTouristSpots = () => {
                                         </label>
                                         <input type="text" name='user_Name'
                                             placeholder="Enter user name"
-                                            className="input input-bordered w-full text-[14px] md:text-[16px]" required />
+                                            className="input input-bordered w-full text-[14px] md:text-[16px]" 
+                                            defaultValue={user?.displayName}
+                                            required />
                                     </div>
                                 </div>
                                 <div className='mt-3 md:mt-3 lg:mt-5'>

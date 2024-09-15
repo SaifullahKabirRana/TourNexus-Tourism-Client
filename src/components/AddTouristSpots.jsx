@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-
+import Swal from 'sweetalert2'
 
 const AddTouristSpots = () => {
     const { user } = useContext(AuthContext);
@@ -31,10 +31,20 @@ const AddTouristSpots = () => {
             },
             body: JSON.stringify(newSpot)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Added Tourists Spot Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                }
+            })
 
     }
     return (
@@ -137,7 +147,7 @@ const AddTouristSpots = () => {
                                         </label>
                                         <input type="text" name='user_Name'
                                             placeholder="Enter user name"
-                                            className="input input-bordered w-full text-[14px] md:text-[16px]" 
+                                            className="input input-bordered w-full text-[14px] md:text-[16px]"
                                             defaultValue={user?.displayName}
                                             required />
                                     </div>

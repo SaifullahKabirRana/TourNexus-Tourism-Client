@@ -128,7 +128,7 @@ const AddTouristSpots = () => {
                                             <span className="label-text text-base md:text-lg lg:text-xl font-openSans font-semibold ">Total Visitors Per Year
                                             </span>
                                         </label>
-                                        <input type="number" name='totalVisitorsPerYear'
+                                        <input type="text" name='totalVisitorsPerYear'
                                             placeholder="Enter total visitors per year"
                                             className="input input-bordered w-full text-[14px] md:text-[16px]" required />
                                     </div>

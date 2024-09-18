@@ -3,6 +3,7 @@ import { FaCircleDollarToSlot } from "react-icons/fa6";
 import { IoTimeOutline } from "react-icons/io5";
 import { FaStreetView } from "react-icons/fa6";
 import { IoArrowForwardSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 const TouristSpot = ({ touristSpot }) => {
     const { _id, tourists_spot_name, location, average_cost, photo, travel_time, totalVisitorsPerYear } = touristSpot;
     return (
@@ -47,10 +48,12 @@ const TouristSpot = ({ touristSpot }) => {
                                 <span className="text-black text-opacity-60">{totalVisitorsPerYear}</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-1 text-sm md:text-[15px] lg:text-lg hover:text-[#56b63e]">
-                            <span className="text-black hover:text-[#56b63e] text-opacity-70 font-quicksand font-semibold">View details</span>
-                            <IoArrowForwardSharp />
-                        </div>
+                        <Link to={`/viewDetails/${_id}`}>
+                            <div className="flex items-center gap-1 text-sm md:text-[15px] lg:text-lg hover:text-[#56b63e]">
+                                <span className="text-black hover:text-[#56b63e] text-opacity-70 font-quicksand font-semibold">View details</span>
+                                <IoArrowForwardSharp />
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

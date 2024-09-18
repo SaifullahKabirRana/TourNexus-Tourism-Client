@@ -6,6 +6,7 @@ import AddTouristSpots from "../components/AddTouristSpots";
 import Register from "../components/Register";
 import Login from "../components/Login";
 import PrivateRoutes from "./PrivateRoutes";
+import ViewDetails from "../components/touristSpots/ViewDetails";
 
 
 const router = createBrowserRouter([
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
         element: <Root></Root>,
         children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/touristSpot')
             },
@@ -24,12 +25,17 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes><AddTouristSpots></AddTouristSpots></PrivateRoutes>,
             },
             {
-                path:'/register',
+                path: '/register',
                 element: <Register></Register>
             },
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/viewDetails/:id',
+                element: <ViewDetails></ViewDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
             }
         ]
     },

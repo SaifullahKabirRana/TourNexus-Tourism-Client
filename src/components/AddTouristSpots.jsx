@@ -92,7 +92,7 @@ const AddTouristSpots = () => {
                                             <span className="label-text text-base md:text-lg lg:text-xl font-openSans font-semibold ">Average Cost
                                             </span>
                                         </label>
-                                        <input type="text    " name='average_cost'
+                                        <input type="number" name='average_cost'
                                             placeholder="Enter average cost"
                                             className="input input-bordered w-full text-[14px] md:text-[16px]" required />
                                     </div>

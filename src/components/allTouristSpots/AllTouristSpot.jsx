@@ -35,7 +35,7 @@ const AllTouristSpot = ({ allTouristSpot }) => {
                     <div className="flex gap-1 md:gap-2 items-center text-sm md:text-base lg:text-lg mt-1 md:mt-2 font-openSans">
 
                         <FaCircleDollarToSlot className="text-[#56b63e]" />
-                        <span className="text-black text-opacity-60"> From <span className="text-orange-400 font-medium">{average_cost}</span></span>
+                        <span className="text-black text-opacity-60"> From <span className="text-orange-400 font-medium">{average_cost}$</span></span>
                     </div>
                     <hr className="mt-3 md:mt-4 lg:mt-7 border-dashed" />
                     <div className="flex justify-between mt-2 md:mt-3 lg:mt-4">

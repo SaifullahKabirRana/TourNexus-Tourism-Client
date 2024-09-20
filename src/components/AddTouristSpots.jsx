@@ -15,11 +15,11 @@ const AddTouristSpots = () => {
         const short_description = form.short_description.value;
         const travel_time = form.travel_time.value;
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
-        const user_email = form.user_email.value;
+        const email = form.email.value;
         const user_Name = form.user_Name.value;
         const photo = form.photo.value;
         const newSpot = {
-            tourists_spot_name, country_Name, location, average_cost, seasonality, short_description, travel_time, totalVisitorsPerYear, user_email, user_Name, photo
+            tourists_spot_name, country_Name, location, average_cost, seasonality, short_description, travel_time, totalVisitorsPerYear, email, user_Name, photo
         };
         console.log(newSpot);
 
@@ -138,7 +138,7 @@ const AddTouristSpots = () => {
                                         <label className="label">
                                             <span className="label-text text-base md:text-lg lg:text-xl font-openSans font-semibold ">User Email</span>
                                         </label>
-                                        <input type="email" name='user_email' placeholder="Enter user email" className="input input-bordered w-full text-[14px] md:text-[16px]" defaultValue={user?.email} required />
+                                        <input type="email" name='email' placeholder="Enter user email" className="input input-bordered w-full text-[14px] md:text-[16px]" defaultValue={user?.email} required />
                                     </div>
                                     <div className="form-control w-full">
                                         <label className="label">

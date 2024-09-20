@@ -8,6 +8,9 @@ import Login from "../components/Login";
 import PrivateRoutes from "./PrivateRoutes";
 import ViewDetails from "../components/touristSpots/ViewDetails";
 import AllTouristSpots from "../components/allTouristSpots/AllTouristSpots";
+import MyLists from "../components/myLists/MyLists";
+
+
 
 
 const router = createBrowserRouter([
@@ -29,6 +32,11 @@ const router = createBrowserRouter([
                 path: '/allTouristSpots',
                 element: <AllTouristSpots></AllTouristSpots>,
                 loader: () => fetch('http://localhost:5000/touristSpot')
+            },
+            {
+                path: '/myList',
+                element: <MyLists></MyLists>
+                
             },
             {
                 path: '/register',

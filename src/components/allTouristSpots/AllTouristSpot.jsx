@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const AllTouristSpot = ({ allTouristSpot }) => {
     const { _id, tourists_spot_name, location, average_cost, photo, travel_time, totalVisitorsPerYear } = allTouristSpot;
+    
     return (
         <div className=" ">
             <div className=" ">

@@ -1,5 +1,6 @@
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const MyList = ({ item, index, items, setItems }) => {
     const { _id, tourists_spot_name, country_Name, average_cost } = item;
@@ -44,7 +45,9 @@ const MyList = ({ item, index, items, setItems }) => {
                     <td className="text-orange-400 font-medium">{average_cost}$</td>
                     <td className="flex gap-1 md:gap-2 lg:gap-3">
                         <div>
-                            <MdEdit className="bg-[#3C393B] text-white text-[20px] md:text-[25px] lg:text-[28px] p-1 rounded-[5px]"></MdEdit>
+                            <Link to={`/updateTouristSpots/${_id}`}>
+                                <MdEdit className="bg-[#3C393B] text-white text-[20px] md:text-[25px] lg:text-[28px] p-1 rounded-[5px]"></MdEdit>
+                            </Link>
                         </div>
                         <div>
                             <MdDelete onClick={() => handleDelete(_id)} className='bg-[#EA4744] text-white text-[20px] md:text-[25px] lg:text-[28px] p-[2px] md:p-1  rounded-[5px]'></MdDelete>

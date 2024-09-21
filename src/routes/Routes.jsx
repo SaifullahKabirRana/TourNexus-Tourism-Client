@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import ViewDetails from "../components/touristSpots/ViewDetails";
 import AllTouristSpots from "../components/allTouristSpots/AllTouristSpots";
 import MyLists from "../components/myLists/MyLists";
+import UpdateTouristSpots from "../components/UpdateTouristSpots";
 
 
 
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes><AddTouristSpots></AddTouristSpots></PrivateRoutes>,
             },
             {
+                path: '/updateTouristSpots/:id',
+                element: <PrivateRoutes><UpdateTouristSpots></UpdateTouristSpots></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
+            },
+            {
                 path: '/allTouristSpots',
                 element: <AllTouristSpots></AllTouristSpots>,
                 loader: () => fetch('http://localhost:5000/touristSpot')
@@ -36,7 +42,7 @@ const router = createBrowserRouter([
             {
                 path: '/myList',
                 element: <PrivateRoutes><MyLists></MyLists></PrivateRoutes>
-                
+
             },
             {
                 path: '/register',

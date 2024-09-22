@@ -2,6 +2,7 @@ import Banner from "./header/Banner";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import TouristSpots from "./touristSpots/TouristSpots";
+import Achievements from "./Achievements";
 
 const Home = () => {
     const { loader } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <TouristSpots></TouristSpots>
+            <Achievements></Achievements>
         </div>
     );
 };

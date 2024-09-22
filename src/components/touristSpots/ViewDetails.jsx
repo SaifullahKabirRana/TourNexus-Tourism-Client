@@ -64,7 +64,7 @@ const ViewDetails = () => {
                         <div className="flex items-center gap-2">
                             <FaCircleDollarToSlot className="text-[#56b63e]" />
                             <span>Form</span>
-                            <span className="text-orange-400 font-medium ">{average_cost}</span>
+                            <span className="text-orange-400 font-medium ">{average_cost}$</span>
                         </div>
                     </div>
                     <div className="mt-5 md:mt-6 lg:mt-8 pb-4 md:pb-5 lg:pb-7">

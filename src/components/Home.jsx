@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import TouristSpots from "./touristSpots/TouristSpots";
 import Achievements from "./Achievements";
 import Subscribe from "./Subscribe";
+import Countries from "./countries/Countries";
 
 const Home = () => {
     const { loader } = useContext(AuthContext);
@@ -16,8 +17,10 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <TouristSpots></TouristSpots>
+            <Countries></Countries>
             <Achievements></Achievements>
             <Subscribe></Subscribe>
+
         </div>
     );
 };

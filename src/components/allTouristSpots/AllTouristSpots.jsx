@@ -35,7 +35,7 @@ const AllTouristSpots = () => {
             <div >
                 <h2 className="text-center font-quicksand text-2xl md:text-3xl lg:text-4xl font-bold">All Tourists Spot</h2>
                 <div className="text-center mt-3 md:mt-5 lg:mt-7">
-                    <select onChange={handleSort} className="select select-bordered  shadow-md border-[#56b63e] w-full max-w-[170px] md:max-w-[240px] lg:max-w-[280px] font-openSans">
+                    <select onChange={handleSort} className="select select-bordered  shadow-md border-[#56b63e]  max-w-[180px] md:max-w-[240px] lg:max-w-[280px] font-openSans text-xs md:text-sm">
                         <option disabled selected >Sort by Average Cost</option>
                         <option value='asc' >Low to High</option>
                         <option value='desc'>High to Low</option>

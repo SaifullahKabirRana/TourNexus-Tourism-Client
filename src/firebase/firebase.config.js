@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBtkq-MCn5zNrnB0rF8JxVg7UThhczreGg",
-  authDomain: "tournexus-tourism.firebaseapp.com",
-  projectId: "tournexus-tourism",
-  storageBucket: "tournexus-tourism.appspot.com",
-  messagingSenderId: "536604160240",
-  appId: "1:536604160240:web:8fc2694ee6f61f17059235"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

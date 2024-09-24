@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/touristSpot')
+                loader: () => fetch('https://tour-nexus-tourism-server.vercel.app/touristSpot')
             },
             {
                 path: '/addTouristSpots',
@@ -33,12 +33,12 @@ const router = createBrowserRouter([
             {
                 path: '/updateTouristSpots/:id',
                 element: <PrivateRoutes><UpdateTouristSpots></UpdateTouristSpots></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
+                loader: ({ params }) => fetch(`https://tour-nexus-tourism-server.vercel.app/touristSpot/${params.id}`)
             },
             {
                 path: '/allTouristSpots',
                 element: <AllTouristSpots></AllTouristSpots>,
-                loader: () => fetch('http://localhost:5000/touristSpot')
+                loader: () => fetch('https://tour-nexus-tourism-server.vercel.app/touristSpot')
             },
             {
                 path: '/myList',
@@ -56,12 +56,12 @@ const router = createBrowserRouter([
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
+                loader: ({ params }) => fetch(`https://tour-nexus-tourism-server.vercel.app/touristSpot/${params.id}`)
             },
             {
                 path: '/categories/:country',
                 element: <Categories></Categories>,
-                loader: ({params}) => fetch(`http://localhost:5000/categories/${params.country}`)
+                loader: ({params}) => fetch(`https://tour-nexus-tourism-server.vercel.app/categories/${params.country}`)
             }
         ]
     },

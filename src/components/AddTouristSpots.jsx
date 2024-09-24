@@ -24,7 +24,7 @@ const AddTouristSpots = () => {
         console.log(newSpot);
 
         // send data to the server
-        fetch('http://localhost:5000/touristSpot', {
+        fetch('https://tour-nexus-tourism-server.vercel.app/touristSpot', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -5,7 +5,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 const Countries = () => {
     const [countries, setCountries] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/countries')
+        fetch('https://tour-nexus-tourism-server.vercel.app/countries')
             .then(res => res.json())
             .then(data => setCountries(data))
     }, [])

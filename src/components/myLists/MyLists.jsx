@@ -8,7 +8,7 @@ const MyLists = () => {
     const [items, setItems] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myList/${user?.email}`)
+        fetch(`https://tour-nexus-tourism-server.vercel.app/myList/${user?.email}`)
             .then(res => res.json())
             .then(data => setItems(data));
     }, [user]);

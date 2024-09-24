@@ -2,7 +2,7 @@
 
 const Subscribe = () => {
     return (
-        <div className="mt-5 md:mt-6 lg:mt-8 md:mx-6 lg:mx-10">
+        <div className="mt-5 md:mt-6 lg:mt-8 md:mx-6  2xl:mx-10">
             <div className="w-full bg-[#12132D0D] rounded-xl border" >
                 <div className="container flex flex-col flex-wrap content-center justify-center p-4 py-10 md:py-20 mx-auto md:p-10">
                     <h1 className="text-3xl md:text-4xl lg:text-5xl antialiased font-semibold leading-none text-center font-quicksand">Get Our Updates</h1>

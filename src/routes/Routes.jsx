@@ -10,6 +10,7 @@ import ViewDetails from "../components/touristSpots/ViewDetails";
 import AllTouristSpots from "../components/allTouristSpots/AllTouristSpots";
 import MyLists from "../components/myLists/MyLists";
 import UpdateTouristSpots from "../components/UpdateTouristSpots";
+import Categories from "../components/categories/Categories";
 
 
 
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
                 path: '/viewDetails/:id',
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/touristSpot/${params.id}`)
+            },
+            {
+                path: '/categories/:country',
+                element: <Categories></Categories>,
+                loader: ({params}) => fetch(`http://localhost:5000/categories/${params.country}`)
             }
         ]
     },

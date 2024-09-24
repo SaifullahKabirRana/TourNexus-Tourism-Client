@@ -5,9 +5,9 @@ import logo4 from '../assets/medal.png'
 
 const Achievements = () => {
     return (
-        <div className='mt-5 md:mt-7 lg:mt-10'>
+        <div className='mt-6 md:mt-9 lg:mt-14'>
             <h2 className='text-2xl md:text-3xl lg:text-4xl uppercase font-quicksand font-bold text-center'>Achievements</h2>
-            <section className="p-2 my-1 md:p-6 lg:my-2 lg:mx-6 dark:text-gray-800">
+            <section className=" my-1 md:p-6 lg:p-4 2xl:p-4 lg:my-2 2xl:mx-6 dark:text-gray-800">
                 <div className="container grid grid-cols-2 gap-3 md:gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
                     <div className="flex p-4 space-x-3 rounded-lg md:space-x-6 dark:bg-gray-50 dark:text-gray-800">
                         <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-[#6dee61] hover:bg-[#56b63e] w-[80px] md:w-[80px] md:h-[80px] h-[60px] mt-1 md:mt-0">

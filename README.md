@@ -1,8 +1,32 @@
-# React + Vite
+# TourNexus
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **TourNexus**, your ultimate tourism management platform for discovering and managing exciting tourist spots across various countries. Whether you're looking to explore destinations or manage tourist spots, TourNexus offers a streamlined experience for both travelers and administrators.
 
-Currently, two official plugins are available:
+### Live Site URL
+[Visit TourNexus](https://tour-nexus-tourism.vercel.app/) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
+
+- **Tourist Spots Overview**: Explore a variety of tourist destinations with detailed descriptions and images.
+- **Country-Specific Listings**: Discover tourist attractions categorized by countries for easy navigation.
+- **Tourist Spot Management**: Add, update, or delete tourist spots effortlessly with our simple interface.
+- **User Dashboard**: Save your favorite destinations and manage them from "My List" for quick access.
+- **Dark Theme Support**: Enjoy a modern, dark-themed user interface for a comfortable browsing experience.
+- **User Authentication**: Secure login and registration for personalized services and data management.
+- **Responsive Design**: Optimized for desktop and mobile, offering a seamless experience on any device.
+
+### Technologies
+
+- Frontend: React, Router DOM, Tailwind CSS, DaisyUi, MambaUi 
+- Backend: Node.js, Express
+- Database: MongoDB
+- Authentication: Firebase
+
+### To Run This Project Locally,follow these steps
+
+1. Clone the repository: `git clone `
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
+
+
+

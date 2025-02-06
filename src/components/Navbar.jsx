@@ -6,7 +6,7 @@ import userDefaultPic from '../assets/user.png';
 
 const Navbar = () => {
     const { user, logOut, loader } = useContext(AuthContext);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
 
     const handleLogOut = () => {
@@ -136,7 +136,7 @@ const Navbar = () => {
                             :
                             <>
                                 <Link to='/login'><a className="btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6 ">Login</a></Link>
-                                <Link to='/register'><a className=" btn btn-sm md:btn-md bg-[#56b63e] text-white text-sm md:text-lg md:px-6 ml-[2px] -mr-3 md:-mr-0">Register</a></Link>
+                                
                             </>
                     }
                 </div>

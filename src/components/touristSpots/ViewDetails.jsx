@@ -5,10 +5,18 @@ import { IoTime } from "react-icons/io5";
 import { FaStreetView } from "react-icons/fa6";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const ViewDetails = () => {
+    const { loader } = useContext(AuthContext);
     const touristDetails = useLoaderData();
-    const {  tourists_spot_name, country_Name, location, average_cost, photo, travel_time, totalVisitorsPerYear, seasonality, short_description } = touristDetails;
+    const { tourists_spot_name, country_Name, location, average_cost, photo, travel_time, totalVisitorsPerYear, seasonality, short_description } = touristDetails;
+    if (loader) {
+        return <div className='flex justify-center mt-[250px] md:mt-[350px]'>
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-black"></div>
+        </div>
+    }
     return (
         <div className="mt-6 md:mt-10 lg:mt-14">
             <div className=" md:mx-20 lg:mx-36 xl:mx-44 2xl:mx-56">
